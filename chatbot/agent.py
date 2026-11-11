@@ -1,3 +1,5 @@
+from wsgiref import types
+
 from google.adk.agents.llm_agent import Agent
 
 root_agent = Agent(
@@ -5,4 +7,8 @@ root_agent = Agent(
     name='root_agent',
     description='A helpful assistant for user questions.',
     instruction='Answer user questions to the best of your knowledge',
+    generate_content_configs=types.GenerateContentConfigs( 
+    temperature=0.8,
+    max_output_tokens=512
+    )
 )
